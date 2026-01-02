@@ -3,420 +3,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Automotive AI Market Monitor | 2025-2026 Outlook</title>
+    <title>Auto Retail AI | Executive Intelligence Briefing</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --card-dark: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #3b82f6;
-            --success: #10b981;
-            --warning: #f59e0b;
+            --primary: #2563EB; /* Professional Blue */
+            --dark: #0f172a;
+            --light: #f8fafc;
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
+            background-color: #F3F4F6;
+            color: #1f2937;
         }
-        .font-mono {
-            font-family: 'JetBrains Mono', monospace;
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .card-hover { transition: all 0.2s ease-out; }
+        .card-hover:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .btn-primary { 
+            background: var(--dark); color: white; 
+            transition: all 0.2s; 
         }
-        .glass-panel {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-        }
-        .chart-container {
-            position: relative;
-            height: 300px;
-            width: 100%;
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
-        .animate-pulse-slow {
-            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .5; }
-        }
+        .btn-primary:hover { background: #334155; }
+        
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
 
-    <div class="bg-black/50 border-b border-gray-800 py-2 overflow-hidden whitespace-nowrap">
-        <div class="inline-block animate-marquee pl-4 font-mono text-xs text-gray-400">
-            <span class="mr-8"><span class="text-green-500">▲</span> GLOBAL AUTO AI: $38.4B (2030 EST)</span>
-            <span class="mr-8"><span class="text-green-500">▲</span> CAGR: 15.3% (2025-2030)</span>
-            <span class="mr-8"><span class="text-blue-500">●</span> 81% DEALERS INCREASING AI SPEND</span>
-            <span class="mr-8"><span class="text-red-500">▼</span> LEGACY DMS CHURN: +12% YOY</span>
-            <span class="mr-8"><span class="text-green-500">▲</span> SERVICE REVENUE AI LIFT: +22%</span>
-        </div>
-    </div>
-
-    <header class="glass-panel sticky top-0 z-50 border-b border-gray-800">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-                    <i data-lucide="bar-chart-2" class="text-white w-5 h-5"></i>
+                <div class="bg-blue-600 w-8 h-8 rounded flex items-center justify-center text-white font-bold text-sm tracking-tighter">AI</div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-gray-900 leading-none">Auto Retail Intelligence</span>
+                    <span class="text-[10px] text-gray-500 uppercase tracking-wider font-medium mt-0.5">Executive Briefing Hub</span>
                 </div>
-                <span class="text-lg font-bold tracking-tight text-white">AutoMarket<span class="text-blue-500">Intel</span></span>
             </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#macro" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Macro Outlook</a>
-                <a href="#roi" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">ROI Matrix</a>
-                <a href="#agentic" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">The Agentic Shift</a>
-                <a href="#radar" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Vendor Radar</a>
-            </div>
-            <button class="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded text-sm font-medium transition-colors border border-white/10 flex items-center gap-2">
-                <i data-lucide="download" class="w-4 h-4"></i> Export PDF
-            </button>
-        </nav>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-gray-600">
+                <a href="#playbook" class="hover:text-blue-600 transition-colors">Tactical Playbook</a>
+                <a href="#strategic" class="hover:text-blue-600 transition-colors">Strategic Radar</a>
+                <a href="#samples" class="hover:text-blue-600 transition-colors">Work Products</a>
+            </nav>
+        </div>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
 
-        <section id="macro" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div class="lg:col-span-2 glass-panel rounded-xl p-8 border border-gray-800">
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 py-1 rounded text-xs font-mono uppercase tracking-wide">Market Insight • Q1 2026</span>
-                    <span class="text-gray-500 text-xs font-mono">UPDATED: JAN 02 2026</span>
-                </div>
-                <h1 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                    The Efficiency Imperative:<br>
-                    <span class="text-gray-400">Moving from "Growth at All Costs" to "AI-Native Operations"</span>
-                </h1>
-                <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                    2025 marked the inflection point. Dealerships are no longer experimenting with AI for novelty; they are deploying it for survival. The market has shifted from <strong>Generative Chatbots</strong> to <strong>Autonomous Agents</strong> capable of executing complex workflows without human oversight.
-                </p>
-                <div class="grid grid-cols-3 gap-4 border-t border-gray-700 pt-6">
-                    <div>
-                        <p class="text-sm text-gray-500 font-mono uppercase">Mkt Growth (CAGR)</p>
-                        <p class="text-2xl font-bold text-white mt-1">15.3%</p>
-                        <p class="text-xs text-green-500">thru 2030</p>
-                    </div>
-                    <div>
-                        <p class="text-sm text-gray-500 font-mono uppercase">Dealers Adopting</p>
-                        <p class="text-2xl font-bold text-white mt-1">81%</p>
-                        <p class="text-xs text-blue-500">budget increase</p>
-                    </div>
-                    <div>
-                        <p class="text-sm text-gray-500 font-mono uppercase">Svc Profit Lift</p>
-                        <p class="text-2xl font-bold text-white mt-1">30%</p>
-                        <p class="text-xs text-green-500">avg. impact</p>
-                    </div>
-                </div>
+        <section class="max-w-4xl mx-auto text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold uppercase tracking-wide mb-6">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                2026 Market Analysis
             </div>
-            
-            <div class="glass-panel rounded-xl p-6 border border-gray-800 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-white font-bold mb-4 flex items-center gap-2">
-                        <i data-lucide="alert-triangle" class="text-yellow-500 w-4 h-4"></i> Critical Risks
-                    </h3>
-                    <ul class="space-y-4">
-                        <li class="bg-red-500/5 border-l-2 border-red-500 p-3">
-                            <p class="text-xs text-gray-400 font-mono mb-1">DATA FRAGMENTATION</p>
-                            <p class="text-sm text-gray-300">"Patchwork" tech stacks (5+ distinct tools) are causing data silos, preventing true AI learning.</p>
-                        </li>
-                        <li class="bg-yellow-500/5 border-l-2 border-yellow-500 p-3">
-                            <p class="text-xs text-gray-400 font-mono mb-1">CYBERSECURITY</p>
-                            <p class="text-sm text-gray-300">FTC Safeguards enforcement is tightening; AI vendors without SOC2 Type II are becoming liabilities.</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="mt-6">
-                    <div class="text-xs text-gray-500 font-mono mb-2">MARKET SENTIMENT</div>
-                    <div class="w-full bg-gray-700 h-2 rounded-full overflow-hidden">
-                        <div class="bg-green-500 h-full w-[75%]"></div>
-                    </div>
-                    <div class="flex justify-between text-xs text-gray-400 mt-1">
-                        <span>Bearish</span>
-                        <span class="text-white font-bold">Bullish (75%)</span>
-                    </div>
-                </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-6">
+                The "Agentic" Shift in Automotive Retail
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                A comprehensive intelligence package combining tactical execution guidance (Service BDC Automation) and strategic industry context (The DMS Consolidation Wars).
+            </p>
+        </section>
+
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto mb-16">
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center">
+                <div class="text-3xl font-bold text-gray-900 mb-1">40%</div>
+                <div class="text-xs text-gray-500 uppercase tracking-wide font-medium">Service Profit Lift</div>
+                <div class="text-[10px] text-green-600 font-mono mt-2">via Agentic AI (Numa)</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center">
+                <div class="text-3xl font-bold text-gray-900 mb-1">$38B</div>
+                <div class="text-xs text-gray-500 uppercase tracking-wide font-medium">Market By 2030</div>
+                <div class="text-[10px] text-blue-600 font-mono mt-2">15.3% CAGR</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center">
+                <div class="text-3xl font-bold text-gray-900 mb-1">81%</div>
+                <div class="text-xs text-gray-500 uppercase tracking-wide font-medium">Dealer Adoption</div>
+                <div class="text-[10px] text-gray-400 font-mono mt-2">Budget Increase '25</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center">
+                <div class="text-3xl font-bold text-gray-900 mb-1">66%</div>
+                <div class="text-xs text-gray-500 uppercase tracking-wide font-medium">Call Deflection</div>
+                <div class="text-[10px] text-green-600 font-mono mt-2">Fully Automated</div>
             </div>
         </section>
 
-        <section id="roi">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-bold text-white">Operational ROI Matrix</h2>
-                <div class="flex bg-gray-800 rounded-lg p-1">
-                    <button onclick="updateChart('revenue')" class="px-3 py-1 text-sm rounded font-medium bg-gray-700 text-white shadow-sm transition-all tab-btn" data-tab="revenue">Revenue</button>
-                    <button onclick="updateChart('efficiency')" class="px-3 py-1 text-sm rounded font-medium text-gray-400 hover:text-white transition-all tab-btn" data-tab="efficiency">Efficiency</button>
-                    <button onclick="updateChart('retention')" class="px-3 py-1 text-sm rounded font-medium text-gray-400 hover:text-white transition-all tab-btn" data-tab="retention">Retention</button>
-                </div>
+        <section class="mb-16">
+            <div class="flex items-center gap-2 mb-6 border-b border-gray-200 pb-2">
+                <i data-lucide="compass" class="text-gray-400 w-5 h-5"></i>
+                <h2 class="text-sm font-bold text-gray-500 uppercase tracking-wider">Quick Navigation</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="#playbook" class="group bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-500 hover:shadow-md transition-all flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i data-lucide="wrench" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-gray-900">Tactical Playbook</div>
+                        <div class="text-xs text-gray-500">Implementation & Workflows</div>
+                    </div>
+                </a>
+                <a href="#strategic" class="group bg-white p-4 rounded-lg border border-gray-200 hover:border-purple-500 hover:shadow-md transition-all flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <i data-lucide="radar" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-gray-900">Strategic Radar</div>
+                        <div class="text-xs text-gray-500">Market Movers & Consolidation</div>
+                    </div>
+                </a>
+                <a href="#samples" class="group bg-white p-4 rounded-lg border border-gray-200 hover:border-green-500 hover:shadow-md transition-all flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-gray-900">Work Products</div>
+                        <div class="text-xs text-gray-500">Live Models & Audits</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <div class="flex items-center gap-2 mb-6 border-b border-gray-200 pb-2">
+                <i data-lucide="layers" class="text-gray-400 w-5 h-5"></i>
+                <h2 class="text-sm font-bold text-gray-500 uppercase tracking-wider">Package Contents</h2>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div class="glass-panel rounded-xl p-6 border border-gray-800 lg:col-span-1">
-                    <h3 class="text-gray-400 text-sm font-mono uppercase mb-4">Key Metrics (2025 Avg)</h3>
-                    <div class="space-y-4" id="metrics-list">
-                        </div>
-                </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
-                <div class="glass-panel rounded-xl p-6 border border-gray-800 lg:col-span-2">
-                    <div class="chart-container">
-                        <canvas id="roiChart"></canvas>
+                <div id="playbook" class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm card-hover flex flex-col h-full">
+                    <div class="p-1 bg-blue-600"></div>
+                    <div class="p-8 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs font-bold text-blue-600 uppercase tracking-wide mb-1 block">Tactical / Operational</span>
+                                <h3 class="text-2xl font-bold text-gray-900">The "Agentic" Playbook</h3>
+                            </div>
+                            <i data-lucide="cpu" class="text-gray-300 w-8 h-8"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                            Reference report detailing the shift from "Chatbots" to "Action Models." Includes a specific breakdown of automating the Service BDC to zero-human-touch for routine queries.
+                        </p>
+                        
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
+                                <span><strong>Workflow:</strong> Zero-Touch Appointment Booking</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
+                                <span><strong>Vendor Matrix:</strong> Numa vs. Impel vs. CDK</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i>
+                                <span><strong>ROI Model:</strong> Cost-Per-RO Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-gray-100 bg-gray-50 mt-auto">
+                        <button class="w-full flex items-center justify-center gap-2 btn-primary py-3 rounded-lg font-medium text-sm">
+                            Open Playbook
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
                     </div>
                 </div>
+
+                <div id="strategic" class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm card-hover flex flex-col h-full">
+                    <div class="p-1 bg-purple-600"></div>
+                    <div class="p-8 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-xs font-bold text-purple-600 uppercase tracking-wide mb-1 block">Strategic / Industry</span>
+                                <h3 class="text-2xl font-bold text-gray-900">2026 Competitive Radar</h3>
+                            </div>
+                            <i data-lucide="map" class="text-gray-300 w-8 h-8"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+                            Deep dive into the "Platform Wars." Analyzing the consolidation risk of point solutions and the rise of "AI-Native" DMS providers like Tekion vs. the incumbents (Reynolds/CDK).
+                        </p>
+                        
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-500"></i>
+                                <span><strong>Consolidation:</strong> The "Patchwork Tax" of 5+ tools</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-500"></i>
+                                <span><strong>Risk:</strong> FTC Safeguards & Data Sovereignty</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-500"></i>
+                                <span><strong>Timeline:</strong> The 18-month Migration Window</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 border-t border-gray-100 bg-gray-50 mt-auto">
+                        <button class="w-full flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 py-3 rounded-lg font-medium text-sm transition-colors">
+                            View Strategic Radar
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section id="agentic" class="glass-panel rounded-xl border border-gray-800 overflow-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-2">
-                <div class="p-8 border-r border-gray-800">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase mb-4">
-                        <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                        </span>
-                        Emerging Trend
+        <section id="samples" class="mb-20">
+            <div class="flex items-center gap-2 mb-6 border-b border-gray-200 pb-2">
+                <i data-lucide="folder-open" class="text-gray-400 w-5 h-5"></i>
+                <h2 class="text-sm font-bold text-gray-500 uppercase tracking-wider">Sample Work Products</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 hover:border-blue-400 transition-colors group cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="p-2 bg-blue-50 rounded text-blue-600">
+                            <i data-lucide="git-branch" class="w-6 h-6"></i>
+                        </div>
+                        <span class="px-2 py-1 rounded bg-gray-100 text-gray-500 text-[10px] font-mono uppercase">Workflow Diagram</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-white mb-4">From "Chatbot" to "Agent"</h2>
-                    <p class="text-gray-400 leading-relaxed mb-6">
-                        The 2023-2024 era was defined by LLMs that could <em>talk</em>. The 2026 era is defined by LAMs (Large Action Models) that can <em>do</em>. We are witnessing the automated execution of complex, multi-step workflows.
+                    <h4 class="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">Service BDC "Zero-Touch" Architecture</h4>
+                    <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+                        Technical workflow mapping the routing of inbound service calls → AI Voice Agent → DMS Write-back. Identifies failure points and human-in-the-loop triggers.
                     </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3 text-gray-300 text-sm">
-                            <i data-lucide="check-circle" class="text-green-500 w-4 h-4 mt-0.5"></i>
-                            <span><strong>Autonomous Scheduling:</strong> Agents access the DMS, check shop capacity, and book appointments without human confirmation.</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-gray-300 text-sm">
-                            <i data-lucide="check-circle" class="text-green-500 w-4 h-4 mt-0.5"></i>
-                            <span><strong>Negotiation:</strong> AI agents authorized to negotiate trade-in values within pre-set gross margin guardrails.</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-gray-300 text-sm">
-                            <i data-lucide="check-circle" class="text-green-500 w-4 h-4 mt-0.5"></i>
-                            <span><strong>Inventory Re-pricing:</strong> Real-time price adjustments based on local competitor scraping and "Days to Turn" targets.</span>
-                        </li>
-                    </ul>
+                    <div class="mt-4 flex items-center gap-2 text-xs font-medium text-blue-600">
+                        View Diagram <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    </div>
                 </div>
-                <div class="p-8 bg-gray-900/50 flex flex-col justify-center relative">
-                    <div class="space-y-2">
-                        <div class="p-4 rounded border border-gray-700 bg-gray-800/50 opacity-50">
-                            <div class="text-xs text-gray-500 uppercase font-mono">Layer 1 (2023)</div>
-                            <div class="font-bold text-gray-400">Informational</div>
-                            <div class="text-xs text-gray-500">"What are your hours?"</div>
+
+                <div class="bg-white p-6 rounded-lg border border-gray-200 hover:border-blue-400 transition-colors group cursor-pointer">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="p-2 bg-blue-50 rounded text-blue-600">
+                            <i data-lucide="table" class="w-6 h-6"></i>
                         </div>
-                        <div class="p-4 rounded border border-gray-700 bg-gray-800/80 opacity-75">
-                            <div class="text-xs text-gray-500 uppercase font-mono">Layer 2 (2024)</div>
-                            <div class="font-bold text-gray-300">Transactional</div>
-                            <div class="text-xs text-gray-400">"Book me for Tuesday at 2pm."</div>
-                        </div>
-                        <div class="p-4 rounded border border-blue-500/30 bg-blue-900/10 relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-16 h-16 bg-blue-500/20 blur-xl rounded-full"></div>
-                            <div class="text-xs text-blue-400 uppercase font-bold font-mono">Layer 3 (2026)</div>
-                            <div class="font-bold text-white">Agentic / Autonomous</div>
-                            <div class="text-xs text-blue-200">"Re-price aged inventory and email 50 low-funnel prospects."</div>
-                        </div>
+                        <span class="px-2 py-1 rounded bg-gray-100 text-gray-500 text-[10px] font-mono uppercase">Audit Template</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">Dealership Tech Stack Audit</h4>
+                    <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+                        A structured scorecard for evaluating current software spend. Categories include: Redundancy, Data Silos, API Openness, and AI-Readiness Score.
+                    </p>
+                    <div class="mt-4 flex items-center gap-2 text-xs font-medium text-blue-600">
+                        View Template <i data-lucide="arrow-right" class="w-3 h-3"></i>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="radar">
-            <h2 class="text-2xl font-bold text-white mb-6">Competitive Landscape Radar</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="company-cards">
-                </div>
         </section>
 
     </main>
 
-    <footer class="border-t border-gray-800 mt-12 bg-black/30 backdrop-blur-sm">
-        <div class="container mx-auto px-4 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                <p>&copy; 2026 AutoMarket Intelligence. Proprietary Research.</p>
-                <div class="flex gap-6 mt-4 md:mt-0 font-mono text-xs">
-                    <span>Sources: PNC, Cox Auto, McKinsey, Deloitte</span>
-                    <span>Last Index: 02 JAN 2026</span>
-                </div>
+    <footer class="bg-white border-t border-gray-200 py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-50 border border-gray-200 mb-6">
+                <span class="text-sm font-medium text-gray-900">The Bottom Line:</span>
+                <span class="text-sm text-gray-600">"The window for individual differentiation is open now. The tech is proven, but the implementation gap is widening."</span>
             </div>
+            <p class="text-xs text-gray-400 font-mono">
+                Executive Intelligence Briefing | Sources: Cox Automotive, J.D. Power, Numa, Tekion, Q1 2026 Reports.
+            </p>
         </div>
     </footer>
 
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
-
-        // --- Data ---
-        const roiData = {
-            revenue: [
-                { label: 'Lead Conversion Lift', value: 26, unit: '%', desc: 'Improvement in lead-to-sale via AI nurture.' },
-                { label: 'Svc Repair Order Value', value: 18, unit: '%', desc: 'Increase in RO dollars via predictive upsell.' },
-                { label: 'Showroom Appt Rate', value: 27, unit: '%', desc: 'Higher show rates from automated confirmation.' },
-                { label: 'Gross Profit / Unit', value: 12, unit: '%', desc: 'Better margin retention via dynamic pricing.' }
-            ],
-            efficiency: [
-                { label: 'Inbound Call Deflection', value: 66, unit: '%', desc: 'Calls handled fully by Voice AI agents.' },
-                { label: 'BDC Cost Reduction', value: 40, unit: '%', desc: 'Savings in BDC staffing/overhead.' },
-                { label: 'Time-to-Funding', value: 35, unit: '%', desc: 'Reduction in F&I contract transit time.' },
-                { label: 'Inventory Turn Rate', value: 15, unit: '%', desc: 'Faster days-to-sell for used inventory.' }
-            ],
-            retention: [
-                { label: 'Service Retention', value: 22, unit: '%', desc: 'Customers returning for service w/ AI reminders.' },
-                { label: 'Re-purchase Rate', value: 14, unit: '%', desc: 'Loyalty increase via lifecycle marketing.' },
-                { label: 'CSI Score Lift', value: 9, unit: 'pts', desc: 'Improvement in customer satisfaction index.' },
-                { label: 'Lost Soul Recovery', value: 11, unit: '%', desc: 'Reactivation of dormant database leads.' }
-            ]
-        };
-
-        const companies = [
-            { name: "Tekion", status: "Disruptor", tech: "Cloud Native DMS", insight: "Replacing legacy infrastructure. High friction switch, massive long-term value.", trend: "up" },
-            { name: "Impel", status: "Leader", tech: "Lifecycle AI", insight: "Dominating the communication layer. Best-in-class integration with existing CRMs.", trend: "up" },
-            { name: "Numa", status: "Specialist", tech: "Fixed Ops AI", insight: "Solving the 'missed call' problem in Service. Immediate revenue impact.", trend: "flat" },
-            { name: "Reynolds", status: "Incumbent", tech: "Spark AI", insight: "Defensive innovation. Adding AI to protect massive DMS market share.", trend: "flat" },
-            { name: "Lotlinx", status: "Specialist", tech: "Inventory AI", insight: "VIN-specific marketing. Moving marketing spend from 'brand' to 'unit'.", trend: "up" },
-            { name: "CDK Global", status: "Incumbent", tech: "Modern Retail", insight: "Rebuilding trust post-cyber event. Deep integration is their moat.", trend: "down" },
-            { name: "CarEdge", status: "Consumer", tech: "Buyer Agent", insight: "The 'Anti-Dealer'. Using AI to negotiate FOR the consumer. Major threat.", trend: "up" },
-            { name: "Gubagoo", status: "Acquired", tech: "Chat/Digital", insight: "Part of Reynolds. Pushing 'Virtual Retailing' to bridge online/offline.", trend: "flat" }
-        ];
-
-        // --- Chart Config ---
-        let mainChart;
-        const ctx = document.getElementById('roiChart').getContext('2d');
-        
-        function initChart(category) {
-            const data = roiData[category];
-            const labels = data.map(d => d.label);
-            const values = data.map(d => d.value);
-
-            if (mainChart) mainChart.destroy();
-
-            mainChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Improvement',
-                        data: values,
-                        backgroundColor: '#3b82f6',
-                        borderRadius: 4,
-                        hoverBackgroundColor: '#60a5fa'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y',
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: '#1e293b',
-                            titleColor: '#fff',
-                            bodyColor: '#94a3b8',
-                            borderColor: '#334155',
-                            borderWidth: 1,
-                            padding: 10,
-                            callbacks: {
-                                label: function(context) {
-                                    return context.parsed.x + roiData[category][context.dataIndex].unit + ' Improvement';
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            grid: { color: '#334155', drawBorder: false },
-                            ticks: { color: '#94a3b8' }
-                        },
-                        y: {
-                            grid: { display: false },
-                            ticks: { color: '#f8fafc', font: { family: 'Inter', weight: '500' } }
-                        }
-                    }
-                }
-            });
-
-            // Update Metrics List
-            const list = document.getElementById('metrics-list');
-            list.innerHTML = data.map(d => `
-                <div class="flex justify-between items-start border-b border-gray-800 pb-3 last:border-0">
-                    <div>
-                        <div class="text-white font-medium text-sm">${d.label}</div>
-                        <div class="text-xs text-gray-500 mt-1">${d.desc}</div>
-                    </div>
-                    <div class="text-green-400 font-bold font-mono">+${d.value}${d.unit}</div>
-                </div>
-            `).join('');
-        }
-
-        function updateChart(category) {
-            // Update buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                if (btn.dataset.tab === category) {
-                    btn.classList.remove('bg-transparent', 'text-gray-400');
-                    btn.classList.add('bg-gray-700', 'text-white', 'shadow-sm');
-                } else {
-                    btn.classList.add('bg-transparent', 'text-gray-400');
-                    btn.classList.remove('bg-gray-700', 'text-white', 'shadow-sm');
-                }
-            });
-            initChart(category);
-        }
-
-        // --- Render Companies ---
-        const companyContainer = document.getElementById('company-cards');
-        companies.forEach(c => {
-            const trendIcon = c.trend === 'up' ? '<span class="text-green-500">↗</span>' : c.trend === 'down' ? '<span class="text-red-500">↘</span>' : '<span class="text-gray-500">→</span>';
-            const statusColor = c.status === 'Disruptor' ? 'text-purple-400 border-purple-500/30 bg-purple-500/10' : 
-                              c.status === 'Incumbent' ? 'text-blue-400 border-blue-500/30 bg-blue-500/10' : 
-                              'text-green-400 border-green-500/30 bg-green-500/10';
-            
-            companyContainer.innerHTML += `
-                <div class="glass-panel p-5 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors group">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="text-white font-bold text-lg">${c.name}</h3>
-                        <div class="text-lg">${trendIcon}</div>
-                    </div>
-                    <span class="inline-block px-2 py-0.5 rounded text-xs font-mono uppercase border ${statusColor} mb-3">${c.status}</span>
-                    <p class="text-xs text-gray-500 font-mono uppercase mb-1">Core Tech</p>
-                    <p class="text-sm text-gray-300 mb-3">${c.tech}</p>
-                    <p class="text-xs text-gray-500 leading-relaxed border-t border-gray-800 pt-3 group-hover:text-gray-400 transition-colors">${c.insight}</p>
-                </div>
-            `;
-        });
-
-        // --- Init ---
-        document.addEventListener('DOMContentLoaded', () => {
-            initChart('revenue');
-        });
-
     </script>
 </body>
 </html>
