@@ -1,1 +1,1 @@
-[LICK](https://james-bonaguro.github.io/auto-saas/)
+[LINK](https://james-bonaguro.github.io/auto-saas/)
